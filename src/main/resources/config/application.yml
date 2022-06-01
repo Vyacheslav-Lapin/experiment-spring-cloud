@@ -1,0 +1,6 @@
+mail.credentials:
+  authMethod: basic
+  username: user
+  password: qwerty
+
+jsonplaceholder: https://jsonplaceholder.typicode.com
