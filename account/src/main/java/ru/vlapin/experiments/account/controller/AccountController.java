@@ -1,4 +1,4 @@
-package ru.vlapin.experiments.account;
+package ru.vlapin.experiments.account.controller;
 
 import java.math.BigDecimal;
 import java.util.UUID;
