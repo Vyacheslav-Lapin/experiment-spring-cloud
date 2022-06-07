@@ -30,14 +30,14 @@ public class ReflectionUtils {
           .unchecked();
 
   private final Function2<String, String, Stream<Class<?>>> GET_CLASS_FROM_FILE =
-      Function2.<String, String, String>of("%s.%s"::formatted)
+      Function2.<String, String, String>of((s1, s2) -> String.format("%s.%s",s1, s2))
           .compose2((String name) -> name.substring(0, name.length() - 6))
           .andThen(CLASS_FOR_NAME_UNCHECKED)
           .andThen(Stream::of);
 
   private final Function3<File, String, String, Stream<Class<?>>> GET_CLASS_FROM_DIR =
       Function3.of((file, packageName, fileName) ->
-                       findClasses(file, "%s.%s".formatted(packageName, fileName)));
+                       findClasses(file, String.format("%s.%s", packageName, fileName)));
 
   /**
    * Scans all classes accessible from the context class loader which belong to the given package

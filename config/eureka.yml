@@ -1,0 +1,9 @@
+spring:
+  application.name: eureka
+  cloud.config:
+    enabled: false
+    import-check.enabled: false
+
+eureka.client:
+  fetch-registry: false
+  register-with-eureka: false

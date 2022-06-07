@@ -18,7 +18,9 @@ public class AspectUtils {
 
   @SneakyThrows
   public Optional<Method> getMethod(JoinPoint jp) {
-    if (jp.getSignature() instanceof MethodSignature signature) {
+    val jpSignature = jp.getSignature();
+    if (jpSignature instanceof MethodSignature) {
+      val signature = (MethodSignature) jpSignature;
       val method = signature.getMethod();
       return Optional.of(method.getDeclaringClass().isInterface() ?
                               jp.getTarget().getClass().getDeclaredMethod(signature.getName(), method.getParameterTypes()) : method);
